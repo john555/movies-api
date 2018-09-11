@@ -24,7 +24,7 @@ function authorization(request, response, next) {
   
   jwt.verify(token, secret, function(err, decoded) {
     if (!err) {
-      request.user = decoded;
+      request.user = decoded.user;
     } else {
       return response.status(401).send(error);
     }

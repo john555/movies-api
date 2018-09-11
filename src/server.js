@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const authorization = require('./middleware/authorization')
+const authorization = require('./middleware/authorization');
 
-const movieRoutes = require('./routes/movieRoutes')
+const movieRoutes = require('./routes/movieRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const port = process.env.PORT;
 const secret = process.env.SECRET;
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 app.use('*', authorization);
 
 app.use('/movies', movieRoutes);
+app.use('/users', userRoutes);
 
 app.get('/', (request, response) => {
   return response.send('it works!!');
