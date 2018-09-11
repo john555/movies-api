@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/movies');
-
-const error = {
-  message: 'Bad request'
-};
+const { error } = require('../config');
 
 router.get('/', (request, response) => {
   const offset = parseInt(request.query.offset) || 0;
