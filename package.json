@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "PORT=3000 SECRET=secret nodemon src/server.js"
+    "start:dev": "DATABASE_URL=mongodb://localhost/movies-dev PORT=3000 SECRET=secret nodemon src/server.js"
   },
   "author": "",
   "license": "ISC",

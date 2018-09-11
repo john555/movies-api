@@ -6,4 +6,4 @@ const moviesSchema = mongoose.Schema({
   posterImage: { type: String },
 });
 
-module.exports = mongoose.Model('movies', moviesSchema);
+module.exports = mongoose.model('Movie', moviesSchema);
