@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Movie = require('../models/movies');
 const { error } = require('../config');
+const isisValidImageUrl = require('../validators/isValidImageUrl');
 
 router.get('/', (request, response) => {
   const offset = parseInt(request.query.offset) || 0;
@@ -25,6 +26,12 @@ router.post('/', (request, response) => {
   }
 
   const { title, description, posterImage } = request.body;
+
+  if(!isisValidImageUrl(posterImage)) {
+    error.message = 'Poster image should have a valid image URL. (Only PNGs and JPGs are allowed)';
+    return response.status(400).send(error);
+  }
+
   const movie = new Movie({ title, description, posterImage });
 
   movie.save((err, movie) => {
