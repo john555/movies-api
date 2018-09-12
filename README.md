@@ -22,8 +22,10 @@ First, you need to start mongodb.
 
 | Route   |      Description      
 |----------|:-----------------
+| POST /users | Creates a new user. Sample payload: `{"firstName": "","lastName": "", "username" : "","password":""}`
+| POST /users/login | Authenticates a user. Sample payload: `{"username" : "","password":""}`
 | GET /movies |  Gets all movies in batches of `8`. Specify `offset` as a query parameter e.g `?offset=2`
-| POST /movies |   Adds new Movies. Sample payload: `{"title": "","description": "", "posterImage" : ""}`
+| POST /movies |   Adds new Movies. Sample payload: `{"title": "","description": "", "posterImage" : ""}`. <br> This endpoint is secure. Send token via the `Authorization` header. e.g `Authorization=Basic <token-string>`.
 
 ## Manual testing
 Use [postman](https://www.getpostman.com/) to manually test the app.
