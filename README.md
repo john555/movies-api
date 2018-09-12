@@ -27,5 +27,10 @@ First, you need to start mongodb.
 | GET /movies |  Gets all movies in batches of `8`. Specify `offset` as a query parameter e.g `?offset=2`
 | POST /movies |   Adds new Movies. Sample payload: `{"title": "","description": "", "posterImage" : ""}`. <br> This endpoint is secure. Send token via the `Authorization` header. e.g `Authorization=Basic <token-string>`.
 
+## Automated testing
+```
+$ yarn test
+$ yarn test:watch # runs the tests in watch mode
+```
 ## Manual testing
 Use [postman](https://www.getpostman.com/) to manually test the app.
